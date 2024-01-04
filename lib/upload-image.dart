@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Image upload'),
+          title: const Text('Image upload'),
         ),
         body: UserImageUpload(),
       ),
@@ -78,13 +78,13 @@ class _UserImageUploadState extends State<UserImageUpload> {
           onPressed: () {
             _pickImage();
           },
-          child: Text('Pick Image'),
+          child: const Text('Pick Image'),
         ),
         ElevatedButton(
           onPressed: () {
             _uploadImageToFirebase();
           },
-          child: Text('Upload Image to Firebase'),
+          child: const Text('Upload Image to Firebase'),
         ),
       ],
     );
