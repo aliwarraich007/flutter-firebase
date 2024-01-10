@@ -12,6 +12,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   final TextEditingController controller = TextEditingController();
 
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
                   contentPadding: const EdgeInsets.all(10.0),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   ElevatedButton(
@@ -58,7 +60,7 @@ class MyApp extends StatelessWidget {
                       _deleteData();
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.red,
+                      backgroundColor: Colors.red,
                     ),
                     child: const Text('Delete'),
                   ),

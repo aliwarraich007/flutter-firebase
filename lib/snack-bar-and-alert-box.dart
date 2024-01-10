@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: StudentListScreen(),
     );
   }
@@ -21,6 +23,8 @@ class Student {
 }
 
 class StudentListScreen extends StatefulWidget {
+  const StudentListScreen({super.key});
+
   @override
   _StudentListScreenState createState() => _StudentListScreenState();
 }
@@ -36,7 +40,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student List'),
+        title: const Text('Student List'),
       ),
       body: ListView.builder(
         itemCount: students.length,
@@ -48,7 +52,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  icon: Icon(Icons.edit),
+                  icon: const Icon(Icons.edit),
                   onPressed: () {
                     // TODO: Implement update functionality
                     showSnackBarMessage(
@@ -56,7 +60,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.delete),
+                  icon: const Icon(Icons.delete),
                   onPressed: () {
                     // Show confirmation dialog before deletion
                     showDeleteConfirmationDialog(index);
@@ -83,7 +87,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Confirm Deletion'),
+          title: const Text('Confirm Deletion'),
           content: Text('Are you sure to delete ${students[index].name}?'),
           actions: [
             TextButton(
@@ -92,14 +96,14 @@ class _StudentListScreenState extends State<StudentListScreen> {
                 deleteStudent(index);
                 Navigator.of(context).pop();
               },
-              child: Text('Yes'),
+              child: const Text('Yes'),
             ),
             TextButton(
               onPressed: () {
                 // User clicked No, close dialog
                 Navigator.of(context).pop();
               },
-              child: Text('No'),
+              child: const Text('No'),
             ),
           ],
         );

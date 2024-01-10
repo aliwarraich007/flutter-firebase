@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:photo_view/photo_view_gallery.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Zoomable Image'),
+        title: const Text('Zoomable Image'),
       ),
       body: Center(
         child: Column(
@@ -32,25 +35,25 @@ class MyHomePage extends StatelessWidget {
                 print('Text Clicked!');
                 // Perform any action when the text is clicked
               },
-              child: Text(
+              child: const Text(
                 'Click Me!',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Zoomable Image using PhotoView
-            Container(
+            SizedBox(
               width: 150,
               height: 150,
               child: PhotoView(
-                imageProvider: NetworkImage(
+                imageProvider: const NetworkImage(
                   'https://variety.com/wp-content/uploads/2020/01/taylor-swift-variety-facetime.jpg?w=1000',
                 ),
                 minScale: PhotoViewComputedScale.contained * 0.8,
                 maxScale: PhotoViewComputedScale.covered * 2,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Clickable Image using InkWell
             InkWell(
               onTap: () {
